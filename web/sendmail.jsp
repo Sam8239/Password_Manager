@@ -8,7 +8,7 @@
 <%
     String result;
 
-    final String to = request.getParameter("name");
+    final String to = request.getParameter("email");
 
     final String subject = "INTRUDER";
 

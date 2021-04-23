@@ -89,7 +89,7 @@
                     statement = conn.createStatement();
                     String sql = "SELECT * FROM ROOT.SAVEDPASSWORD WHERE NAME = '" + email + "' and USERPASSWORD = '" + encryptedpass + "'";
                     resultSet = statement.executeQuery(sql);
-                    while (resultSet.next()) {
+                    if (resultSet.next()) {
             %>
             <tr>
                 <td><%=resultSet.getString("username")%></td>
@@ -97,8 +97,8 @@
             </tr>
 
             <%
-                    a=1;}
-                    if (a!=1) {
+                   }
+                    else {
                         RequestDispatcher requestDispatcher = request.getRequestDispatcher("sendmail.jsp");
 
                         requestDispatcher.forward(request, response);
